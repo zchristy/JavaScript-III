@@ -136,7 +136,7 @@ Humanoid.prototype.greet = function(){
   Villain.prototype.kryptoStrike = function () {
     this.healthPoints = this.healthPoints - 30;
     if(this.healthPoints > 0) {
-      return `You will die Superman! ---- ${this.healthPoints} points are taken from ${this.name}'s health...`;
+      return `You will die Superman! ---- 30 points are taken from ${this.name}'s health... ${this.healthPoints} remain`;
     } else if (this.healthPoints <= 0) {
         return `The world is mine now! MUHAHAHA  Goodbye Superman!`;
     }
@@ -150,9 +150,9 @@ Humanoid.prototype.greet = function(){
   }
 
   Hero.prototype.powerStrike = function () {
-    this.healthPoints = this.healthPoints - 30;
+    this.healthPoints = this.healthPoints - 40;
     if(this.healthPoints > 0) {
-      return `You will never rule this planet! ---- ${this.healthPoints} points are taken from ${this.name}'s health...`;
+      return `You will never rule this planet! ---- 40 points are taken from ${this.name}'s health... ${this.healthPoints} remain`;
       } else if (this.healthPoints <= 0) {
         return `I never wanted to hurt you Lex, you made me do this....`;
       }
@@ -167,7 +167,7 @@ Humanoid.prototype.greet = function(){
       width: 4,
       height: 8,
     },
-    healthPoints: 30,
+    healthPoints: 100,
     name: 'Lex Luthor',
     team: 'Legion of Doom',
     weapons: [
@@ -185,7 +185,7 @@ Humanoid.prototype.greet = function(){
       width: 4,
       height: 8,
     },
-    healthPoints: 50,
+    healthPoints: 150,
     name: 'Clark Kent',
     team: 'Justice League',
     weapons: [
@@ -194,5 +194,9 @@ Humanoid.prototype.greet = function(){
     language: 'English',
   });
 
+  console.log(lex.kryptoStrike.call(clark)); // Lex shot krytonite at Superman
+  console.log(clark.powerStrike.call(lex)); // Superman retaliated back at Lex
+  console.log(lex.kryptoStrike.call(clark)); // Lex shot krytonite at Superman
+  console.log(clark.powerStrike.call(lex)); // Superman retaliated back at Lex
   console.log(lex.kryptoStrike.call(clark)); // Lex shot krytonite at Superman
   console.log(clark.powerStrike.call(lex)); // Superman retaliated back at Lex
