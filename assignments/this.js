@@ -36,9 +36,10 @@ console.log(myObj.isStudent());
 function Vehicle(make, numWheels) {
   this.make = make;
   this.numWheels = numWheels;
-  this.vroom = function() {
-    return `Vroom! Vroom! Vroom! I am a ${this.make}, with ${this.numWheels} wheels!`;
-  }
+}
+
+Vehicle.prototype.vroom = function() {
+  return `Vroom! Vroom! Vroom! I am a ${this.make}, with ${this.numWheels} wheels!`;
 }
 
 const truck = new Vehicle("Toyota", 4);
